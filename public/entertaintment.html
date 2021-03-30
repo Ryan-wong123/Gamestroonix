@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <link href="css/videoModal.css" type="text/css" rel="stylesheet">
+
+  <title>Entertaintment page</title>
+
+  <script src="javascript/app.js"></script>
+  <script src="javascript/entertaintment.js"></script>
+</head>
+
+<body id="backgroundImg" onload="getVideoData()">
+  <!-------------------------------------------------------top navigation header----------------------------------------------------------->
+  <div class="topNavigationBar">
+    <!--logo-->
+    <img src="images/logo.gif" id="logo">
+
+    <!--Catergories-->
+    <a href="platforms.html">Platforms</a>
+    <a href="reviews.html">Category</a>
+    <a href="nearbyshops.html">Nearby shops</a>
+    <a class="active" href="entertaintment.html">Entertaintment</a>
+
+    <!--profile button-->
+    <img src="images/Male User_48px.png" id="profile">
+  </div>
+
+  <!---------------------------------------------------slideshow------------------------------------------------------------------------>
+  <div class="slider" id="main-slider">
+    <div class="slider-wrapper">
+      <!-- slides -->
+      <img src="https://s3.amazonaws.com/prod-media.gameinformer.com/styles/thumbnail/s3/2018/12/08/036ab4e0/dawning2018_sparrow.jpg"
+        alt="destiny2" class="slide" />
+      <img src="https://www.thenerdmag.com/wp-content/uploads/2018/12/Battlefield-5-ingame-screenshot.jpg" alt="battlefield5"
+        class="slide" />
+      <img src="https://i.pinimg.com/originals/58/6b/f3/586bf3842dbe4ce3d2ea04d4b27594d2.gif" alt="fortnite" class="slide" />
+      <img src="https://cdn.pastemagazine.com/www/articles/OWDeathmatchMain.jpg" alt="overwatch" class="slide" />
+      <img src="https://assets1.ignimgs.com/2018/05/31/lunastra-3-1527798314787_1280w.jpg" alt="monster hunter world"
+        class="slide" />
+    </div>
+  </div>
+
+  <!-------------------------------------------------------overview of entertaintment==---------------------------------------------------->
+  <div class="container">
+    <!--display total number of entertaintment-->
+    <p>
+      <h3 id="summary"></h3>
+    </p>
+    <!--display videos from db-->
+    <div id="videoTable"></div>
+  </div>
+
+  <!----------------------------------------------------------------------modal for individual entertaintment page-------------------------------------------------------------->
+  <!-- Modal -->
+  <div id="videoPage" class="videoModal">
+    <!-- Modal content -->
+    <div class="videoModal-content">
+
+      <!--display video title-->
+      <div>
+        <span id="videoTitleIndividual"></span>
+      </div>
+
+      <!--display platform of the game-->
+      <div>
+        <b>Platform: <span id="videoPlatform"></span></b>
+      </div>
+
+      <!--display genre of game-->
+      <div>
+        <b>Genre: <span id="videoGenre"></span></b>
+      </div>
+
+      <!--display trailer of game-->
+      <iframe frameborder="0" allowfullscreen width="560" height="315" src="" id="videoTrailer"></iframe>
+    </div>
+  </div>
+
+  <!--links to javascript files-->
+  <script src="javascript/javascript.js"></script>
+  <script src="javascript/entertaintmentModal.js"></script>
+</body>
+
+</html>

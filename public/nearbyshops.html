@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+  <title>nearbyshops page</title>
+
+  <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <script src="javascript/app.js"></script>
+  <script src="javascript/shop.js"></script>
+</head>
+
+<body id="backgroundImg" onload="getGameShopData()">
+  <!-------------------------------------------------------top navigation header----------------------------------------------------------->
+  <div class="topNavigationBar">
+    <!--logo-->
+    <img src="images/logo.gif" id="logo">
+
+    <!--Catergories-->
+    <a href="platforms.html">Platforms</a>
+    <a href="reviews.html">Category</a>
+    <a class="active" href="nearbyshops.html">Nearby shops</a>
+    <a href="entertaintment.html">Entertaintment</a>
+
+    <!--profile button-->
+    <img src="images/Male User_48px.png" id="profile">
+  </div>
+
+
+  <!---------------------------------------------------google maps api -------------------------------------------------------------------->
+  <iframe id="mapLocation" src="https://www.google.com/maps/d/u/0/embed?mid=1B6p2c6_aDTmX7l_SviXdwUCvyfEEInRx" width="640" height="480"></iframe>
+
+  <!-----------------------------------------------------display shop tiles---------------------------------------------------------------->
+  <div class="container">
+
+    <!--display the total number of shops-->
+    <p>
+      <h3 id="summary"></h3>
+    </p>
+
+    <!--display shop from db-->
+    <div id="shopTable"></div>
+
+  </div>
+
+  <!-- links to javascript files-->
+  <script src="javascript/javascript.js"></script>
+</body>
+
+</html>

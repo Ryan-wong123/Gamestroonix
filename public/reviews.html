@@ -1,0 +1,227 @@
+<html>
+
+<head>
+  <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <link href="css/gameCatModal.css" type="text/css" rel="stylesheet">
+  <link href="css/gameSearchModal.css" type="text/css" rel="stylesheet">
+
+  <title>Reviews page</title>
+
+  <script src="javascript/app.js"></script>
+  <script src="javascript/gameCategory.js"></script>
+  <script src="javascript/comments.js"></script>
+</head>
+
+<body id="backgroundImg" onload="getGameCatergoryData()">
+  <!-------------------------------------------------------top navigation header----------------------------------------------------------->
+  <div class="topNavigationBar">
+    <!--logo-->
+    <img src="images/logo.gif" id="logo">
+
+    <!--Catergories-->
+    <a href="platforms.html">Platforms</a>
+    <a class="active" href="reviews.html">Category</a>
+    <a href="nearbyshops.html">Nearby shops</a>
+    <a href="entertaintment.html">Entertaintment</a>
+
+    <!--search button-->
+    <img src="images/Search_48px.png" id="search">
+
+    <!--profile button-->
+    <img src="images/Male User_48px.png" id="profile">
+  </div>
+
+  <!-------------------------------------------------- modal for search box--------------------------------------------------------------->
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <!--input value for game title-->
+      <input type="text" id="myInput" onClick="displaySearch()" placeholder="Search for games" autofocus>
+
+      <!--display search results-->
+      <div id="myUL"></div>
+
+      <button type="button" id="btnSearchSend" onClick="displaySearch()">search</button>
+    </div>
+  </div>
+
+  <!---------------------------------------------modal for individual search game----------------------------------->
+  <!-- Modal -->
+  <div id="gameSearchPage" class="gameSearchPagemodal">
+    <!-- Modal content -->
+    <div class="gameSearchmodal-content">
+      <div onClick="closeModal()" id="closeModal">&times;</div>
+
+      <!--display games title-->
+      <div>
+        <span id="gameTitleIndividual1"></span>
+      </div>
+
+      <!-- display platform of game-->
+      <div>
+        <b>Platform: <span id="gamePlatform1"></span></b>
+      </div>
+
+      <!-- display genre of game-->
+      <div>
+        <b>Genre: <span id="gameGenre1"></span></b>
+      </div>
+
+      <!-- display release date of game-->
+      <div>
+        <b>Release date: <span id="gameReleaseDate1"></span></b>
+      </div>
+
+      <!-- display rating of game-->
+      <div>
+        <b>Rating: <span id="gameRating1"></span></b>
+      </div>
+
+      <!-- display trailer of game-->
+      <iframe frameborder="0" allowfullscreen width="560" height="315" src="" id="gameTrailer1"></iframe>
+
+      <!-- display game sypnosis-->
+      <p id="gameReview1"></p>
+
+      <!-- display a picture of the game-->
+      <img id="gameScreenshot1" width="200">
+
+
+      <p><b>Comments</b></p>
+      <!-- form to submit comments-->
+      <form id="commentForm">
+
+        <!-- user's profile id hidden using css-->
+        <P id="profileId1"></P>
+
+        <!-- user's username-->
+        <p id="profileName1"></p>
+
+        <label for="userComments">Review</label>
+
+        <!-- textbox for typing comment-->
+        <textarea id="userComments1" rows="3" cols="100%"></textarea>
+
+        <!-- button to post comment-->
+        <button type="button" id="submitComment" onClick="addSearchGameComment()">PostComment</button>
+      </form>
+
+      <!-- display comments from db-->
+      <div id="commentBody1"></div>
+
+    </div>
+  </div>
+  <!----------------------------------------------------side navigation bar---------------------------------------------------------------->
+  <div class="sidenavigationbar">
+    <a id="latestMenu" href="#" onclick="listLatestGame()">Latest</a>
+    <a id="popularMenu" href="#" onclick="listPopularGame()">Popular</a>
+    <a id="upcomingMenu" href="#" onclick="listUpcomingGame()">Upcoming</a>
+  </div>
+
+  <!---------------------------------------------------slideshow------------------------------------------------------------------------>
+  <div class="slider" id="main-slider">
+    <!-- outermost container element -->
+    <div class="slider-wrapper">
+      <!-- innermost wrapper element -->
+      <!-- slides -->
+      <img src="https://www.gameinformer.com/sites/default/files/styles/full/public/2018/06/07/7f39c138/Official_HITMAN_2_Key_Art_1528273547.jpg"
+        alt="Hitman2" class="slide" />
+      <img src="https://assets1.ignimgs.com/2018/11/06/thequietman-1280-1541525753221_1280w.jpg" alt="The Quiet Man"
+        class="slide" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/6c/Tetris_Effect.png" alt="Tetris Effect" class="slide" />
+    </div>
+  </div>
+
+  <!------------------------------------------------------ display game tile ------------------------------------------------------------------>
+  <div class="container">
+
+    <!--display total number of genre games-->
+    <p>
+      <h3 id="summary"></h3>
+    </p>
+
+    <!--display games from db-->
+    <div id="gameCatergoryTable"></div>
+  </div>
+
+  <!----------------------------------------------------------------------modal for individual game-------------------------------------------------------------->
+  <!-- Modal -->
+  <div id="gameCategoryPage" class="gameCatmodal">
+    <!-- Modal content -->
+    <div class="gameCatmodal-content ">
+
+      <!--display games title-->
+      <div>
+        <span id="gameTitleIndividual"></span>
+      </div>
+
+      <div id="gameDetailInfo">
+
+        <!-- display platform of game-->
+        <div>
+          Platform: <span id="gamePlatform"></span>
+        </div>
+
+        <!-- display genre of game-->
+        <div>
+          Genre: <span id="gameGenre"></span>
+        </div>
+
+        <!-- display release date of game-->
+        <div>
+          Release date: <span id="gameReleaseDate"></span>
+        </div>
+
+        <!-- display rating of game-->
+        <div>
+          Rating: <span id="gameRating"></span>
+        </div>
+      </div>
+
+      <!-- display trailer of game-->
+      <iframe frameborder="0" allowfullscreen width="560" height="315" src="" id="gameTrailer"></iframe>
+
+      <!-- display game sypnosis-->
+      <p id="gameReview"></p>
+
+      <!-- display a picture of the game-->
+      <img id="gameScreenshot" width="200">
+
+      <!-- form to submit comments-->
+      <form id="commentForm">
+        <label for="accId">id</label>
+
+        <!-- user's profile id input-->
+        <input type="text" id="accId">
+        <label for="nickname">Nickname</label>
+
+        <!-- user's username-->
+        <input type="text" id="nickname">
+        <label for="userComments">Review</label>
+
+        <!-- textbox for typing comment-->
+        <textarea id="userComments" rows="3" cols="100%" placeholder="Leave a comment"></textarea>
+
+        <!-- button to post comment-->
+        <button type="button" id="submitComment" onClick="addComment();">PostComment</button>
+      </form>
+
+      <p><b>Comments</b></p>
+
+      <!-- display comments from db-->
+      <div id="commentBody"></div>
+
+    </div>
+  </div>
+
+  <!--------link to script for javascript--------->
+  <script src="javascript/javascript.js"></script>
+  <script src="javascript/gameSearchPage.js"></script>
+  <script src="javascript/gameCatModal.js"></script>
+  <script src="javascript/gameCategory.js"></script>
+</body>
+
+</html>
